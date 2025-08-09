@@ -1,0 +1,15 @@
+from youtube.yt_router import yt_router
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI
+
+
+app=FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  
+    allow_credentials=True,
+    allow_methods=["*"],  
+    allow_headers=["*"], 
+    expose_headers=["Content-Type"], 
+)
+app.include_router(yt_router)
