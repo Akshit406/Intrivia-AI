@@ -1,1 +1,12 @@
 youtube-transcript-api
+langchain
+langchain_community
+langchain_core
+langchain_google_genai
+langchain_tavily
+google-generativeai
+fastapi
+uvicorn
+python-multipart
+langgraph
+pymongo
