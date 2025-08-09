@@ -9,3 +9,4 @@ def transcribe_yt_to_str(url:str)->str:
         result+=snippet.text
     return result
 
+print(transcribe_yt_to_str('https://www.youtube.com/watch?v=kdXWyxZJT-8'))
