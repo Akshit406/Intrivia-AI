@@ -9,3 +9,9 @@ def initialize_llm():
     genai.configure(api_key=GeminiApiKey)
     GeminiLLM = ChatGoogleGenerativeAI(model="gemini-2.0-flash")
     return GeminiLLM
+
+def initialize_llm_2():
+    GeminiApiKey=os.getenv('GOOGLE_API_KEY')
+    genai.configure(api_key=GeminiApiKey)
+    GeminiLLM = ChatGoogleGenerativeAI(model="gemini-2.5-flash-lite")
+    return GeminiLLM

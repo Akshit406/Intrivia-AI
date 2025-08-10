@@ -1,4 +1,5 @@
 from youtube.yt_router import yt_router
+from agent.agent_router import agent_router
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI
 
@@ -13,3 +14,4 @@ app.add_middleware(
     expose_headers=["Content-Type"], 
 )
 app.include_router(yt_router)
+app.include_router(agent_router)
