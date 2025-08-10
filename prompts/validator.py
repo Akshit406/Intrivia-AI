@@ -1,7 +1,7 @@
 #TODO: Write validation prompt
 
 def get_validator_prompt(user_response, current_question):
-    result = f"""
+    prompt = f"""
 You are acting as a "Response Validator" in an AI-powered interview system.
 
 Your job is to decide whether the given user response is a **DIRECT answer** to the given question or **NOT_DIRECT**.
@@ -58,4 +58,4 @@ User Response:
 
 Answer with either: DIRECT or NOT_DIRECT
 """
-    return result
+    return prompt
