@@ -20,3 +20,12 @@ class QASet(BaseModel):
     1. The 'question' field is a clearly framed, professional, and context-independent interview question.
     2. The 'answer' field contains an exhaustive, well-structured set of points and keywords representing the expected domain-specific response.                    
     The list should preserve the logical sequence in which questions appear in the transcript.""")
+
+from pydantic import BaseModel
+
+class YouTubeQARequest(BaseModel):
+    url: str
+    title: str
+    description: str
+    creator: str
+    tags: List[str]

@@ -12,3 +12,4 @@ langgraph
 pymongo
 dotenv
 pytube
+certifi
