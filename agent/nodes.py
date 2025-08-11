@@ -17,6 +17,8 @@ def validator_node(state:AgentState):
     llm_so=llm_2.with_structured_output(ResponseFlag)
     prompt=get_validator_prompt(user_response,current_question)
     object=llm_so.invoke(prompt)
+    print("---VALIDATOR---")
+    print(object)
     if(object.is_valid=='DIRECT'):
         state['is_valid']=True
     else:
@@ -30,16 +32,16 @@ def router_node(state:AgentState):
         return 'clarify'
 
 def clarifier_node(state:AgentState):
-    user_response = state["messages"][0].content
+    user_response = state["messages"][-1].content
     current_question = get_current_question_item(state['interview_id'],state['question_id'])
     prompt=get_clarifier_prompt(user_response,current_question)
     response=llm.invoke(prompt)
-    state['messages']=response.content
+    state['messages'].append(AIMessage(content=response.content))
     result=ResponseClarifier(response=response.content,justification=None,score=None)
     result.response=response
     result.justification=None
     result.score=None
-    print("---FROM CLARIFIER---")
+    print("---CLARIFIER---")
     print(result.response)
     return result
 
@@ -50,9 +52,11 @@ def interviewer_node(state:AgentState):
     prompt=get_interviewer_prompt(user_response,current_question)
     llm_so=llm.with_structured_output(Response)
     result=llm_so.invoke(prompt)
-    print("---FROM EVALUATOR---")
-    print(result)
-    state['messages']=result.response
+    print("---EVALUATOR---")
+    print(result.response)
+    print(result.score)
+    print(result.justification)
+    state['messages'].append(AIMessage(content=result.response))
     return result
 
 

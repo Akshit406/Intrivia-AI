@@ -15,5 +15,9 @@ def interact_with_agent(user_answer:str,question_id:int,session_id:str,interview
         "is_valid":True
     }
     response=graph.invoke(state,config=config)
-    return response
-
+    if(response['is_valid']):
+        response['question_id']+=1
+    result=  { 'response':response['messages'][-1].content,
+               'question_id':response['question_id'],
+             }
+    return result
