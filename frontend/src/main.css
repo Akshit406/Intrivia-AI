@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-primary text-text-primary font-sans antialiased;
+}
+
+/* Custom gradient text */
+.gradient-text {
+  @apply bg-gradient-to-r from-accent-blue via-accent-purple to-accent-pink bg-clip-text text-transparent;
+}
+
+/* Glassmorphism effect */
+.glass-card {
+  @apply backdrop-blur-sm bg-white/5 rounded-xl border border-white/10;
+}
+
+/* Grid background */
+.grid-bg {
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(79, 159, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(157, 79, 255, 0.05) 0%, transparent 50%);
+  background-size: 10px 10px;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-gradient-to-r from-accent-blue via-accent-purple to-accent-pink text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 hover:shadow-glow hover:scale-[1.02];
+}
+
+.btn-outline {
+  @apply border border-transparent bg-gradient-to-r from-accent-blue via-accent-purple to-accent-pink bg-origin-border p-[1px] rounded-lg;
+}
+
+.btn-outline span {
+  @apply block bg-primary text-white font-bold py-2 px-7 rounded-[7px] hover:bg-transparent transition-all duration-300;
+}
+
+/* Animation for the AI spiral */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+.rotate-animation {
+  animation: rotate 20s linear infinite;
+}
+
+/* Floating animation for UI elements */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-animation-2 {
+  animation: float 5s ease-in-out infinite 1s;
+}
+
+.float-animation-3 {
+  animation: float 7s ease-in-out infinite 0.5s;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-primary;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-b from-accent-blue to-accent-purple rounded-full;
+}
+
+/* Toast notifications */
+.Toastify__toast {
+  @apply font-sans bg-secondary text-white border border-white/10 rounded-lg;
+}
+
+.Toastify__progress-bar {
+  @apply bg-gradient-to-r from-accent-blue to-accent-pink;
+}
