@@ -30,31 +30,40 @@ const AdvancedFeatures = () => {
   ]
 
   return (
-    <section className="py-20 bg-gradient-section relative overflow-hidden">
+    <section className="py-20 bg-black relative overflow-hidden border-t border-accent-purple/30">
       {/* Animated background elements */}
-      <div className="absolute top-0 right-0 w-1/2 h-full opacity-20">
-        <div className="absolute top-1/4 right-0 w-64 h-64 rounded-full bg-accent-blue/30 blur-3xl"></div>
-        <div className="absolute top-1/2 right-1/4 w-48 h-48 rounded-full bg-accent-pink/30 blur-3xl"></div>
-      </div>
+      <div className="absolute inset-0 opacity-10" style={{
+        backgroundImage: `linear-gradient(to right, rgba(79, 159, 255, 0.2) 1px, transparent 1px), linear-gradient(to bottom, rgba(79, 159, 255, 0.2) 1px, transparent 1px)`,
+        backgroundSize: '40px 40px'
+      }}></div>
+      
+      {/* Glowing accents */}
+      <div className="absolute -top-20 -left-20 w-64 h-64 rounded-full bg-accent-blue/20 blur-3xl"></div>
+      <div className="absolute -bottom-20 -right-20 w-64 h-64 rounded-full bg-accent-purple/20 blur-3xl"></div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Advanced Features for <span className="gradient-text">Serious Candidates</span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+            <span className="gradient-text">Advanced</span> Preparation Tools
           </h2>
-          <p className="text-text-secondary max-w-2xl mx-auto">
-            Go beyond basic mock interviews with our comprehensive preparation toolkit.
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Elevate your interview skills with our professional-grade training system
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <div key={index} className="flex flex-col items-center text-center">
-              <div className="w-20 h-20 rounded-full bg-gradient-to-r from-accent-blue to-accent-purple flex items-center justify-center text-white mb-6 shadow-glow">
-                {feature.icon}
+            <div 
+              key={index} 
+              className="bg-gray-900/50 hover:bg-gray-900/70 backdrop-blur-sm border border-gray-800 rounded-xl p-8 transition-all duration-300 hover:shadow-glow hover:border-accent-blue/30"
+            >
+              <div className="w-16 h-16 rounded-full bg-gradient-to-r from-accent-blue/20 to-accent-purple/20 flex items-center justify-center mb-6 mx-auto">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-r from-accent-blue to-accent-purple flex items-center justify-center text-white">
+                  {feature.icon}
+                </div>
               </div>
-              <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-              <p className="text-text-secondary">{feature.description}</p>
+              <h3 className="text-xl font-bold mb-3 text-white">{feature.title}</h3>
+              <p className="text-gray-400">{feature.description}</p>
             </div>
           ))}
         </div>
