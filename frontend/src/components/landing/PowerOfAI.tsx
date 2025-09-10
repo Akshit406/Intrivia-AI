@@ -39,7 +39,7 @@ const PowerOfAI = () => {
   ]
 
   return (
-    <section className="py-20">
+    <section id="features" className="py-20">
       <div className="text-center mb-16">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
           The Power of <span className="gradient-text">AI</span> in the Mock Interview Room
