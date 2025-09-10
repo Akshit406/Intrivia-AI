@@ -2,14 +2,22 @@ import { useState } from 'react'
 
 const Navbar = ({ scrolled }: { scrolled: boolean }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  
+
   const navItems = [
-    { name: 'About', href: '#about' },
-    { name: 'Features', href: '#features' },
-    { name: 'Leaderboards', href: '#leaderboards' },
+    { name: 'About', href: '#footer' },
+    { name: 'Features', href: '#features' }, 
     { name: 'Pricing', href: '#pricing' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Contact', href: '#footer' }, 
   ]
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault()
+    const target = document.querySelector(href)
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+    setMobileMenuOpen(false) 
+  }
 
   return (
     <header className={`fixed w-full z-50 transition-all ${scrolled ? 'bg-primary/90 backdrop-blur-md py-2 shadow-lg' : 'py-4'}`}>
@@ -33,6 +41,7 @@ const Navbar = ({ scrolled }: { scrolled: boolean }) => {
               <a
                 key={item.name}
                 href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className="text-sm font-medium text-white hover:text-transparent hover:bg-gradient-to-r hover:from-accent-blue hover:to-accent-pink hover:bg-clip-text transition-all duration-300"
               >
                 {item.name}
@@ -69,6 +78,7 @@ const Navbar = ({ scrolled }: { scrolled: boolean }) => {
               <a
                 key={item.name}
                 href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/10"
               >
                 {item.name}
