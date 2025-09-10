@@ -6,8 +6,9 @@ import PowerOfAI from '../components/landing/PowerOfAI'
 import AdvancedFeatures from '../components/landing/AdvancedFeatures'
 import Testimonials from '../components/landing/Testimonials'
 import CTA from '../components/landing/CTA'
-import Footer from '../components/common/Footer'
+// import Footer from '../components/common/Footer'
 import SeeHowItWorks from '../components/landing/SeeHowItWorks'
+import PricingSection from '../components/landing/PricingSection'
 
 const Home: React.FC = () => {
   const [scrolled, setScrolled] = useState<boolean>(false)
@@ -56,9 +57,10 @@ const Home: React.FC = () => {
         <AdvancedFeatures />
         <SeeHowItWorks/>
         <Testimonials />
+        <PricingSection />
         <CTA />
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }
